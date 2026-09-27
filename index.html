@@ -228,10 +228,12 @@ function CameraIcon(props){
   );
 }
 
-function Ph({ label, ratio = "4 / 5", className = "" }){
+function Ph({ label, ratio = "4 / 5", className = "", img }){
   return (
     <div className={`ph ${className}`} style={{ aspectRatio: ratio }} role="img" aria-label={label}>
-      <span className="ph-tag"><CameraIcon /> {label}</span>
+      {img
+        ? <img src={img} alt="" className="absolute inset-0 w-full h-full object-cover" />
+        : <span className="ph-tag"><CameraIcon /> {label}</span>}
     </div>
   );
 }
@@ -492,7 +494,7 @@ function BrandStatement(){
 /* ============================== Concerns ============================== */
 
 const CONCERNS = [
-  { title: "หน้าหย่อนคล้อย", sub: "กรอบหน้าไม่ชัด", shot: "Jawline & facial contour concern" },
+  { title: "หน้าหย่อนคล้อย", sub: "กรอบหน้าไม่ชัด", shot: "Jawline & facial contour concern", img: "images/concern-jawline.png" },
   { title: "ริ้วรอย", sub: "และรูปหน้า", shot: "Fine lines & facial volume concern" },
   { title: "ผิวแห้ง", sub: "ผิวดูโทรม ผิวไม่เรียบเนียน", shot: "Dull, uneven skin texture concern" },
   { title: "สิว", sub: "และปัญหาผิวอุดตัน", shot: "Active acne concern" },
@@ -504,7 +506,7 @@ function ConcernCard({ c }){
   return (
     <a href="#expertise" className="group snap-item shrink-0 w-[78%] sm:w-[46%] lg:w-auto block">
       <div className="img-hover mb-4">
-        <Ph label={c.shot} ratio="4 / 5" />
+        <Ph label={c.shot} ratio="4 / 5" img={c.img} />
       </div>
       <div className="flex items-start justify-between gap-3">
         <div>
