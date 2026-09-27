@@ -1,45 +1,47 @@
-# Refinehaus Clinic — Homepage Prototype
+# Refinehaus Clinic — Website
 
-Single-file React homepage prototype for Refinehaus Clinic (Nakhon Ratchasima, Thailand), a doctor-led boutique aesthetic clinic.
+Next.js 16 (App Router) + TypeScript + Tailwind CSS v4 + MDX website for Refinehaus Clinic (Nakhon Ratchasima), a doctor-led aesthetic clinic. The original single-file prototype is kept in [`mockup/index.html`](mockup/index.html) for reference.
 
-## How it works
+## Run locally
 
-`index.html` is fully self-contained — no build step, no `npm install` needed. Open it directly in a browser.
-
-It loads React, ReactDOM, and Babel Standalone from CDN (cdnjs), plus Tailwind CSS from its Play CDN. The JSX app lives inline in a `<script type="text/babel">` tag at the bottom of the file and is transpiled in-browser by Babel at load time. Fonts (Cormorant Garamond, Manrope, IBM Plex Sans Thai, Krub) load from Google Fonts.
-
-To preview locally, just open `index.html` in a browser, or serve the folder with any static server, e.g.:
-
-```
-npx serve .
+```bash
+npm install
+npm run dev      # http://localhost:3000
+npm run build    # production build (all pages static)
 ```
 
-## Editing in Claude Code
+Copy `.env.example` to `.env.local` and set `NEXT_PUBLIC_SITE_URL` once the domain is known.
 
-Everything — layout, components, copy, styling — lives in this one file:
+## Where things live
 
-- `<style>` block near the top: CSS custom properties for the color palette (`--c-cream`, `--c-olive`, etc.), plus all custom component classes (buttons, cards, placeholders, carousels, animations).
-- `tailwind.config` script block: extends Tailwind with the brand color names and custom breakpoints (`sm`/`md`/`lg`).
-- `<script type="text/babel">` block: the React app. Each homepage section is its own component (`Hero`, `ConcernCards`, `ExpertiseSection`, `TechnologySection`, `DoctorSection`, `ApproachTimeline`, `ResultsSection`, `KnowledgeSection`, `ClinicExperience`, `LocationSection`, `FinalCTA`, `Footer`, plus `Header` / `MobileMenu` / `MobileStickyCTA`). Content for repeatable sections (concerns, expertise cards, tech, doctors, timeline steps, case studies, articles, clinic photos) lives in `const` arrays near the top of the script, above the component that renders them.
+- `src/data/clinic.ts`: clinic facts (address, phone, LINE, license, social). Empty fields are placeholders and are left out of schema.org.
+- `src/data/home.ts`: homepage copy (concerns, expertise, tech, doctors, steps, cases, articles, clinic photos).
+- `src/components/sections/*`: one component per homepage section.
+- `src/components/ui/*`: `Reveal` (scroll fade-in), `Ph` (image / placeholder via `next/image`), `SectionHeading`, `Logo`, icons.
+- `src/app/globals.css`: brand tokens (`@theme`) and custom classes ported from the mockup.
 
-Images are all placeholders — `<Ph label="..." />` renders a labeled placeholder box describing the recommended real photo. The two logo images (`WORDMARK_OLIVE`, `WORDMARK_CREAM`) are embedded as base64 `data:` URIs near the top of the script.
+## SEO (patterns ported from the NinetyNine project)
+
+- `src/lib/seo.ts`: title/description length clamps and OpenGraph/Twitter helpers.
+- `src/components/seo/SchemaMarkup.tsx`: JSON-LD (`MedicalClinic`, `Physician`, `WebSite`, `Organization`, `BreadcrumbList`, `FAQPage`, `MedicalProcedure`, `MedicalWebPage`).
+- `src/app/robots.ts` plus `/main-sitemap.xml` (the sitemap to submit to Search Console) and `/sitemap.xml`, both built from `src/lib/sitemap.ts`.
+- `src/app/opengraph-image.tsx`: default share image.
+- `DeferredGoogleAnalytics`: loads GA4 after page load when `NEXT_PUBLIC_GA_ID` is set.
 
 ## Brand colors
 
 | Name | Hex |
 |---|---|
-| Cream (primary bg) | `#F4F0E7` |
-| Cream 2 (alt bg) | `#F7F4ED` |
+| Cream (primary bg) | `#FAF8F3` |
+| Cream 2 (alt bg) | `#F3EFE7` |
 | Olive (primary) | `#465447` |
-| Olive Dark | `#39483D` |
-| Sage (secondary) | `#A7B09E` |
-| Taupe (accent) | `#C9BAA5` |
+| Olive Dark | `#39463B` |
+| Walnut / Dark / Deep | `#6B5545` / `#553F30` / `#452F21` |
+| Sage | `#A9AEA6` |
+| Taupe | `#C8B6A4` |
 | Charcoal (text) | `#353631` |
-| Muted (secondary text) | `#6F7069` |
+| Muted | `#6F7069` |
 
-## Known placeholders to fill in with real data
+## Still placeholder
 
-- Doctor photos and both doctors' info are filled in, but all other photography is placeholder.
-- Clinic address, phone number, LINE ID, and social links (footer + Visit section) are placeholders.
-- Clinic license number and operator name (footer) are placeholders.
-- The "โปรโมชั่น" nav item currently links to the Knowledge section — there's no dedicated promotions section built yet.
+Photography, clinic address, phone, LINE, social links, license number and operator name (`src/data/clinic.ts`), and the production domain.
