@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Link from '@/components/ui/SmartLink';
 import { CLINIC } from '@/data/clinic';
 import { FOOTER_LINKS } from '@/data/home';
 import { Logo } from '@/components/ui/Logo';

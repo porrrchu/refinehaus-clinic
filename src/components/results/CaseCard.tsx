@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Link from '@/components/ui/SmartLink';
 import type { CaseStudy } from '@/data/results';
 import { Ph } from '@/components/ui/Ph';
 import { ArrowRight } from '@/components/ui/icons';

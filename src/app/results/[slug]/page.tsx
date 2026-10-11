@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
+import Link from '@/components/ui/SmartLink';
 import { notFound } from 'next/navigation';
 import { CASES, getCase } from '@/data/results';
 import { getDoctor } from '@/data/home';

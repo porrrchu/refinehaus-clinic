@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Link from '@/components/ui/SmartLink';
 
 export function Breadcrumb({ items }: { items: { name: string; href?: string }[] }) {
   return (

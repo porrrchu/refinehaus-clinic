@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
+import Link from '@/components/ui/SmartLink';
 import { ARTICLES } from '@/data/articles';
 import { CLINIC } from '@/data/clinic';
 import { ArticleCard } from '@/components/articles/ArticleCard';

@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Link from '@/components/ui/SmartLink';
 import { LineLink } from '@/components/ui/LineLink';
 import { LineIcon } from '@/components/ui/icons';
 

@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Link from '@/components/ui/SmartLink';
 import { ARTICLES } from '@/data/articles';
 import { Reveal } from '@/components/ui/Reveal';
 import { SectionHeading } from '@/components/ui/SectionHeading';

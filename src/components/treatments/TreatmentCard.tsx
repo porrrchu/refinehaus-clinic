@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Link from '@/components/ui/SmartLink';
 import { EXPERTISE } from '@/data/home';
 import { Reveal } from '@/components/ui/Reveal';
 import { Ph } from '@/components/ui/Ph';

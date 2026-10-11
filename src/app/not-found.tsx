@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
+import Link from '@/components/ui/SmartLink';
 
 export const metadata: Metadata = {
   title: 'ไม่พบหน้าที่คุณต้องการ',

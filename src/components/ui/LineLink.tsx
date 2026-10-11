@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Link from '@/components/ui/SmartLink';
 import type { ComponentProps } from 'react';
 import { CLINIC } from '@/data/clinic';
 
