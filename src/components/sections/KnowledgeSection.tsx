@@ -1,28 +1,10 @@
-import { ARTICLES } from '@/data/home';
+import Link from 'next/link';
+import { ARTICLES } from '@/data/articles';
 import { Reveal } from '@/components/ui/Reveal';
-import { Ph } from '@/components/ui/Ph';
 import { SectionHeading } from '@/components/ui/SectionHeading';
-import { ArrowRight } from '@/components/ui/icons';
+import { ArticleCard } from '@/components/articles/ArticleCard';
 
-type Article = (typeof ARTICLES)[number];
-
-function ArticleCard({ a, i }: { a: Article; i: number }) {
-  return (
-    <Reveal as="article" delay={i * 90} className="group">
-      <a href="#knowledge" className="block">
-        <div className="img-hover mb-5">
-          <Ph label={a.shot} ratio="16 / 11" />
-        </div>
-        <p className="eyebrow text-walnut mb-2">{a.cat}</p>
-        <h3 className="font-display text-[1.35rem] text-charcoal leading-snug mb-3">{a.title}</h3>
-        <div className="flex items-center justify-between">
-          <span className="text-[0.82rem] text-muted">อ่าน {a.time}</span>
-          <span className="arrow-cta text-olive text-[0.86rem] font-semibold">Read Article <ArrowRight width="14" height="14" /></span>
-        </div>
-      </a>
-    </Reveal>
-  );
-}
+const HOME_ARTICLE_COUNT = 3;
 
 export function KnowledgeSection() {
   return (
@@ -36,8 +18,12 @@ export function KnowledgeSection() {
           />
         </Reveal>
         <div className="grid md:grid-cols-3 gap-8 lg:gap-10">
-          {ARTICLES.map((a, i) => <ArticleCard key={a.title} a={a} i={i} />)}
+          {ARTICLES.slice(0, HOME_ARTICLE_COUNT).map((a, i) => <ArticleCard key={a.slug} a={a} i={i} />)}
         </div>
+
+        <Reveal className="mt-12 lg:mt-14 text-center">
+          <Link href="/articles" className="btn btn-outline tap">See More Articles</Link>
+        </Reveal>
       </div>
     </section>
   );

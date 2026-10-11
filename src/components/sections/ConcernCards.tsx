@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { CONCERNS } from '@/data/home';
 import { Reveal } from '@/components/ui/Reveal';
 import { Ph } from '@/components/ui/Ph';
@@ -8,7 +9,7 @@ type Concern = (typeof CONCERNS)[number];
 
 function ConcernCard({ c }: { c: Concern }) {
   return (
-    <a href="#expertise" className="group snap-item shrink-0 w-[78%] sm:w-[46%] lg:w-auto block">
+    <Link href={`/treatments/${c.target}`} className="group snap-item shrink-0 w-[78%] sm:w-[46%] lg:w-auto block">
       <div className="img-hover mb-4">
         <Ph label={c.shot} ratio="4 / 5" img={c.img} alt={`${c.title} ${c.sub}`} sizes="(min-width: 1200px) 30vw, (min-width: 480px) 46vw, 78vw" />
       </div>
@@ -22,7 +23,7 @@ function ConcernCard({ c }: { c: Concern }) {
           <ArrowRight width="14" height="14" className="transition-transform duration-300 group-hover:translate-x-1" />
         </span>
       </div>
-    </a>
+    </Link>
   );
 }
 

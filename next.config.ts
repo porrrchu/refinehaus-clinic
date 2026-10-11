@@ -12,5 +12,10 @@ const nextConfig: NextConfig = {
   },
 };
 
-const withMDX = createMDX({});
+const withMDX = createMDX({
+  options: {
+    // Plugin names as strings so they work with Turbopack
+    remarkPlugins: ['remark-gfm'],
+  },
+});
 export default withMDX(nextConfig);

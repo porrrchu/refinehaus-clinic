@@ -9,7 +9,7 @@ function DoctorRow({ d, reverse, i }: { d: Doctor; reverse: boolean; i: number }
   return (
     <Reveal delay={i * 100} className={`grid lg:grid-cols-2 gap-9 lg:gap-16 items-center ${i > 0 ? 'mt-16 lg:mt-24' : ''}`}>
       <div className={`img-hover ${reverse ? 'lg:order-2' : ''}`}>
-        <Ph label={d.shot} ratio="4 / 5" className="lg:aspect-[5/6]" />
+        <Ph label={d.shot} ratio="4 / 5" className="lg:aspect-[5/6]" img={d.img} alt={`${d.name} ${d.role}`} imgPosition="center 25%" sizes="(min-width: 1200px) 50vw, 100vw" />
       </div>
       <div className={reverse ? 'lg:order-1' : ''}>
         <Eyebrow className="mb-4 text-walnut">{d.focus}</Eyebrow>
@@ -21,7 +21,7 @@ function DoctorRow({ d, reverse, i }: { d: Doctor; reverse: boolean; i: number }
           &ldquo;
         </p>
         <blockquote className="font-thai text-charcoal/90 text-[1.05rem] leading-loose mb-8">{d.quote}</blockquote>
-        <a href="#doctors" className="btn btn-outline tap">Meet Our Doctors</a>
+        <a href="#contact" className="btn btn-outline tap">นัดปรึกษาคุณหมอ</a>
       </div>
     </Reveal>
   );

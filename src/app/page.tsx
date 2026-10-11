@@ -8,6 +8,7 @@ import { DoctorSection } from '@/components/sections/DoctorSection';
 import { ApproachTimeline } from '@/components/sections/ApproachTimeline';
 import { ResultsSection } from '@/components/sections/ResultsSection';
 import { KnowledgeSection } from '@/components/sections/KnowledgeSection';
+import { PromotionsSection } from '@/components/sections/PromotionsSection';
 import { ClinicExperience } from '@/components/sections/ClinicExperience';
 import { LocationSection } from '@/components/sections/LocationSection';
 import { FinalCTA } from '@/components/sections/FinalCTA';
@@ -48,6 +49,7 @@ export default function HomePage() {
               jobTitle: d.role,
               specialty: d.roleEn,
               description: d.quote,
+              image: d.img,
             })
           ),
         ]}
@@ -61,6 +63,7 @@ export default function HomePage() {
       <ApproachTimeline />
       <ResultsSection />
       <KnowledgeSection />
+      <PromotionsSection />
       <ClinicExperience />
       <LocationSection />
       <FinalCTA />

@@ -158,7 +158,8 @@
   .arrow-cta svg{ transition:transform .35s cubic-bezier(.16,.8,.24,1); }
   .arrow-cta:hover svg{ transform:translateX(5px); }
 
-  .img-hover{ overflow:hidden; }
+  /* Rounded clip so the scaled .ph keeps its rounded corners on hover */
+  .img-hover{ overflow:hidden; border-radius:var(--r-lg); }
   .img-hover .ph{ transition:transform .8s cubic-bezier(.16,.8,.24,1); }
   .img-hover:hover .ph{ transform:scale(1.035); }
 

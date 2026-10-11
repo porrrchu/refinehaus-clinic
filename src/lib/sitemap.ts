@@ -1,6 +1,9 @@
 import type { MetadataRoute } from 'next';
 import { STATIC_PAGES } from '@/data/staticPages';
 import { CLINIC } from '@/data/clinic';
+import { ARTICLES } from '@/data/articles';
+import { CASES } from '@/data/results';
+import { TREATMENTS } from '@/data/treatments';
 
 function parseUpdatedAt(value: string) {
   return new Date(`${value}T00:00:00+07:00`);
@@ -27,7 +30,19 @@ export function getSitemapEntries(): MetadataRoute.Sitemap {
       url: p.path === '/' ? base : `${base}${p.path}`,
       lastModified: parseUpdatedAt(p.updatedAt),
     })),
-    // Add treatments / doctors / articles here as those pages are built.
+    ...TREATMENTS.map((t) => ({
+      url: `${base}/treatments/${t.slug}`,
+      lastModified: parseUpdatedAt(t.updatedAt),
+    })),
+    ...ARTICLES.map((a) => ({
+      url: `${base}/articles/${a.slug}`,
+      lastModified: parseUpdatedAt(a.updatedAt),
+    })),
+    ...CASES.map((c) => ({
+      url: `${base}/results/${c.slug}`,
+      lastModified: parseUpdatedAt(c.updatedAt),
+    })),
+    // Add doctors pages here as they are built.
   ];
 }
 

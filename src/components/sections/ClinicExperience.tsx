@@ -17,8 +17,10 @@ export function ClinicExperience() {
         </Reveal>
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5 auto-rows-[1fr]">
           {CLINIC_SHOTS.map((s, i) => (
-            <Reveal key={s.label} delay={(i % 4) * 60} className={`img-hover ${s.span}`}>
-              <Ph label={s.label} ratio={s.ratio} className="h-full" />
+            // Single cells set the row height (4:5); spanning tiles fill their area.
+            // On mobile every tile is a single 4:5 cell, so spans are lg-only.
+            <Reveal key={s.label} delay={(i % 4) * 60} className={`img-hover relative aspect-[4/5] ${s.span ? `lg:aspect-auto ${s.span}` : ''}`}>
+              <Ph label={s.label} ratio="" className="absolute inset-0" />
             </Reveal>
           ))}
         </div>

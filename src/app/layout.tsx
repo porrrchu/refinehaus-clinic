@@ -90,7 +90,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="th" className={`${cormorant.variable} ${manrope.variable} ${plexThai.variable} ${krub.variable}`}>
+    <html lang="th" data-scroll-behavior="smooth" className={`${cormorant.variable} ${manrope.variable} ${plexThai.variable} ${krub.variable}`}>
       <head>
         <SchemaMarkup schema={getWebSiteSchema()} />
         <SchemaMarkup schema={getOrganizationSchema()} />

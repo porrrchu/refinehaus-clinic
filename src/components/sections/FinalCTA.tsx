@@ -1,3 +1,5 @@
+import Link from 'next/link';
+import { LineLink } from '@/components/ui/LineLink';
 import { Reveal } from '@/components/ui/Reveal';
 import { LineIcon } from '@/components/ui/icons';
 
@@ -17,8 +19,8 @@ export function FinalCTA() {
           </p>
         </Reveal>
         <Reveal delay={180} className="flex flex-wrap justify-center gap-3.5">
-          <a href="#contact" className="btn btn-primary tap">นัดปรึกษาคุณหมอ</a>
-          <a href="#contact" className="btn btn-cream-outline tap"><LineIcon /> LINE Refinehaus</a>
+          <Link href="/#contact" className="btn btn-primary tap">นัดปรึกษาคุณหมอ</Link>
+          <LineLink className="btn btn-cream-outline tap"><LineIcon /> LINE Refinehaus</LineLink>
         </Reveal>
       </div>
     </section>

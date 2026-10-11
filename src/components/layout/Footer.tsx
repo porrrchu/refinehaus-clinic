@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { CLINIC } from '@/data/clinic';
 import { FOOTER_LINKS } from '@/data/home';
 import { Logo } from '@/components/ui/Logo';
@@ -26,7 +27,7 @@ export function Footer() {
               <p className="eyebrow text-taupe mb-4">Clinic</p>
               <ul className="flex flex-col gap-2.5">
                 {FOOTER_LINKS.map((l) => (
-                  <li key={l.href}><a href={l.href} className="text-cream/70 hover:text-cream text-[0.9rem] transition-colors">{l.label}</a></li>
+                  <li key={l.href}><Link href={l.href} className="text-cream/70 hover:text-cream text-[0.9rem] transition-colors">{l.label}</Link></li>
                 ))}
               </ul>
             </div>
