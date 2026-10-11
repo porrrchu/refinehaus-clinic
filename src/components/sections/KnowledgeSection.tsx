@@ -8,7 +8,7 @@ const HOME_ARTICLE_COUNT = 3;
 
 export function KnowledgeSection() {
   return (
-    <section id="knowledge" className="bg-cream2 py-20 lg:py-28">
+    <section id="articles" className="bg-cream2 py-20 lg:py-28">
       <div className="wrap">
         <Reveal className="mb-12 lg:mb-14">
           <SectionHeading

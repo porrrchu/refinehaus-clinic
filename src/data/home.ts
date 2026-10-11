@@ -3,20 +3,20 @@
 
 export const NAV_LINKS = [
   { labelTh: "หน้าแรก", href: "/" },
-  { labelTh: "บริการของเรา", href: "/treatments" },
+  { labelTh: "บริการของเรา", href: "/#treatments" },
   { labelTh: "ทีมแพทย์", href: "/#doctors" },
-  { labelTh: "รีวิว", href: "/results" },
-  { labelTh: "บทความ", href: "/articles" },
+  { labelTh: "รีวิว", href: "/#results" },
+  { labelTh: "บทความ", href: "/#articles" },
   { labelTh: "โปรโมชั่น", href: "/#promotions" },
   { labelTh: "ติดต่อเรา", href: "/#contact" },
 ];
 
 export const FOOTER_LINKS = [
   { label: "About", href: "/#about" },
-  { label: "Treatments", href: "/treatments" },
+  { label: "Treatments", href: "/#treatments" },
   { label: "Doctors", href: "/#doctors" },
-  { label: "Results", href: "/results" },
-  { label: "Knowledge", href: "/articles" },
+  { label: "Results", href: "/#results" },
+  { label: "Knowledge", href: "/#articles" },
   { label: "Promotions", href: "/#promotions" },
   { label: "Contact", href: "/#contact" },
 ];

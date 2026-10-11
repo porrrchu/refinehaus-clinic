@@ -41,7 +41,7 @@ export function Hero() {
           </Reveal>
           <Reveal delay={260} className="flex flex-wrap gap-3.5">
             <a href="#contact" className="btn btn-primary tap">ปรึกษาคุณหมอ</a>
-            <a href="#expertise" className="btn btn-outline tap">ดูบริการของเรา</a>
+            <a href="#treatments" className="btn btn-outline tap">ดูบริการของเรา</a>
           </Reveal>
         </div>
       </div>
